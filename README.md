@@ -1,5 +1,5 @@
 # FrontEnd
-Practice Frontend projects using html css and js
+Practice Frontend projects using HTML CSS and JS
 
 1 - Blog : A simple blog page,
 
