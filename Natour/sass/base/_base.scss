@@ -7,6 +7,19 @@
 } 
 
 html{
-  font-size: 10px;
+  // font-size: 10px;
+  font-size: 62.5%; //1rem = 10px; 10px/16px(Browser default) = 62.5%
+
+  @include respond(tab-land){
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port){
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop){
+    font-size: 75%;
+  }
 }
 
