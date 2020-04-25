@@ -33,15 +33,18 @@
               transform: rotateY(180deg);
       
       &-1{
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light), to($color-secondary-dark));
         background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
       }
 
 
       &-2{
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-light), to($color-primary-dark));
         background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
       }
 
       &-3{
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light), to($color-tertiary-dark));
         background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
     }
@@ -71,14 +74,17 @@
      
 
     &--1 {
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light), to($color-secondary-dark)), url(../img/nat-5.jpg);
         background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
     }
 
     &--2 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-light), to($color-primary-dark)), url(../img/nat-6.jpg);
       background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
     }
 
     &--3 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light), to($color-tertiary-dark)), url(../img/nat-7.jpg);
       background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
 
     }
@@ -98,9 +104,15 @@
 
   &__heading-span{
     padding: 1rem 1.5rem;
-    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
 
     &--1{
+      background-image: -webkit-gradient(linear,
+        left top, right bottom,
+        from(rgba($color-secondary-light, .85)),
+        to(rgba($color-secondary-dark, .85))
+      );
       background-image: linear-gradient(to right bottom,
         rgba($color-secondary-light, .85),
         rgba($color-secondary-dark, .85)
@@ -108,6 +120,11 @@
     }
 
     &--2{
+      background-image: -webkit-gradient(linear,
+        left top, right bottom,
+        from(rgba($color-primary-light, .85)),
+        to(rgba($color-primary-dark, .85))
+      );
       background-image: linear-gradient(to right bottom,
         rgba($color-primary-light, .85),
         rgba($color-primary-dark, .85)
@@ -115,6 +132,11 @@
     } 
 
     &--3{
+      background-image: -webkit-gradient(linear,
+        left top, right bottom,
+        from(rgba($color-tertiary-light, .85)),
+        to(rgba($color-tertiary-dark, .85))
+      );
       background-image: linear-gradient(to right bottom,
         rgba($color-tertiary-light, .85),
         rgba($color-tertiary-dark, .85)
@@ -148,7 +170,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 90%;
     text-align: center;
   }
@@ -168,4 +191,61 @@
     font-size: 6rem;
     font-weight: 100;
   }
+
+
+  //When device is touch device replace hover card animation
+  @media only screen and (max-width: 900px),
+  only screen and (hover: none){
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 40px rgba($color-black, .15);
+
+    
+    //Sides of the card
+    &__side{
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      //back Side
+      &--back{
+        -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    //3D Animation effect
+    &:hover &__side--front{
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    } 
+
+    //Back Side
+    &__cta{
+      position: relative;
+      top: 0%;
+      left: 0%;
+      -webkit-transform: translate(0);
+              transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+
+    }
+
+    &__details{
+      padding: 1rem 3rem;
+    }
+
+    &__price-box{
+      margin-bottom: 3rem;
+    }
+
+    &__price-value{
+      font-size: 4rem;
+    }
+  }
+
 }

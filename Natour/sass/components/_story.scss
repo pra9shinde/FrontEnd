@@ -7,52 +7,85 @@
   padding: 6rem;
   padding-left: 9rem;
   font-size: $default-font-size;
-  transform: skewX(-12deg);
+  -webkit-transform: skewX(-12deg);
+          transform: skewX(-12deg);
+
+  @include respond(tab-port){
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+
+  @include respond(phone){
+    -webkit-transform: skewX(0);
+            transform: skewX(0);
+  }
 
   &__shape{
     width: 15rem;
     height : 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg);
+    -webkit-transform: translateX(-3rem) skewX(12deg);
+            transform: translateX(-3rem) skewX(12deg);
     position: relative;
+
+    @include respond(phone){
+      -webkit-transform: translateX(-3rem) skewX(0);
+              transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img{
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
+    -webkit-transform: translateX(-4rem) scale(1.4);
+            transform: translateX(-4rem) scale(1.4);
+    -webkit-transition: all .5s;
     transition: all .5s;
   }
 
   &__text{
-    transform: skewX(12deg);
-    backface-visibility: hidden;
+    -webkit-transform: skewX(12deg);
+            transform: skewX(12deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+    @include respond(phone){
+      -webkit-transform: skewX(0);
+              transform: skewX(0);
+    }
   }
 
   &__caption{
     position: absolute;
     top:50%;
     left:50%;
-    transform: translate(-50%, 20%);
+    -webkit-transform: translate(-50%, 20%);
+            transform: translate(-50%, 20%);
     color: $color-white;
     text-transform: uppercase;
     font-size: 1.7rem;
     text-align: center;
     opacity: 0;
+    -webkit-transition: all .5s;
     transition: all .5s;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
   }
 
   &:hover &__caption{
     opacity: 1;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 
   &:hover &__img{
-    transform: translateX(-4rem) scale(1);
-    filter: blur(3px) brightness(80%);
+    -webkit-transform: translateX(-4rem) scale(1);
+            transform: translateX(-4rem) scale(1);
+    -webkit-filter: blur(3px) brightness(80%);
+            filter: blur(3px) brightness(80%);
   }
 }

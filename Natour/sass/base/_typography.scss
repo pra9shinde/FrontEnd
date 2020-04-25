@@ -4,8 +4,6 @@ body{
   /* font-size: 16px; */
   line-height: 1.7;
   color: $color-grey-dark;
-  padding: 3rem;
-  box-sizing: border-box;
 }
 
 
@@ -17,6 +15,9 @@ body{
 
           backface-visibility: hidden;/* Fix animation issues and glitches*/
   margin-bottom: 60px;
+
+ 
+  
 
   &--main{
     display: block;
@@ -31,8 +32,12 @@ body{
             animation-duration: 1s;
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
-  
-    /* animation-delay: 3s; */
+
+    @include respond(phone){
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+    /* animation-delay: 3s; */    
   }
   
   &--sub{
@@ -42,6 +47,9 @@ body{
     letter-spacing: 1.75rem;
     -webkit-animation: moveInRight 1s ease-out;
             animation: moveInRight 1s ease-out;
+    @include respond(phone){
+      letter-spacing: .5rem;
+    }
   }
 }
 
@@ -56,10 +64,20 @@ body{
           background-clip: text;//fill the background image to text
   color: transparent;//make default text color transparent to see background image color
   letter-spacing: .2rem;
+  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 
+  @include respond(tab-port){
+    font-size: 3rem;
+  }
+
+  @include respond(phone){
+    font-size: 2.5rem;
+  }
+
   &:hover{
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    -webkit-transform: skewY(2deg) skewX(15deg) scale(1.1);
+            transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: .5rem 1rem 20px rgba($color-black, 0.2);
   }
 }

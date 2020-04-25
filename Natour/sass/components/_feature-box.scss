@@ -5,18 +5,32 @@
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+
+  @include respond(tab-port){
+    padding: 2rem;
+  }
  
   &__icon{
     font-size: 6rem;
     margin-bottom: .5rem;
+    background-image: -webkit-gradient(linear, left top, right top, from($color-primary-light), to($color-primary-dark));
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    background-clip: text;
+    -webkit-background-clip: text;
+            background-clip: text;
     color:transparent;
+
+    @include respond(tab-port){
+      margin-bottom: 0;
+    }
   } 
 
   &:hover{
-    transform: translateY(-1.5rem) scale(1.03);
+    -webkit-transform: translateY(-1.5rem) scale(1.03);
+            transform: translateY(-1.5rem) scale(1.03);
   }
 
 }
